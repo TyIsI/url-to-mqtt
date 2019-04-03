@@ -1,5 +1,5 @@
 {
-  "name": "vhs-url-to-mqtt",
+  "name": "url-to-mqtt",
   "version": "1.0.0",
   "description": "Monitor a URL and post its content to an MQTT topic",
   "repository": "https://github.com/TyIsI/url-to-mqtt",
