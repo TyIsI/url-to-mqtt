@@ -1,5 +1,5 @@
-const RP = require('request-promise');
-const MQTT = require('async-mqtt');
+const RP = require('request-promise')
+const MQTT = require('async-mqtt')
 
 // Functions
 const handleError = async (msg) => {
@@ -8,10 +8,10 @@ const handleError = async (msg) => {
 }
 
 const connected = async () => {
-  console.log('Online');
+  console.log('Online')
 }
 
-const monitorURL = async() => {
+const monitorURL = async () => {
   try {
     let content = await RP(MONITOR_URL)
     await client.publish(MQTT_TOPIC, content)
@@ -26,8 +26,8 @@ const MONITOR_INTERVAL = process.env.MONITOR_INTERVAL || handleError('Missing MO
 const MQTT_URI = process.env.MQTT_URI || handleError('Missing MQTT_URI')
 const MQTT_TOPIC = process.env.MQTT_TOPIC || handleError('Missing MQTT_TOPIC')
 
-const client = MQTT.connect(MQTT_URI);
+const client = MQTT.connect(MQTT_URI)
 
-client.on('connect', connected);
+client.on('connect', connected)
 
-setInterval(monitorURL,MONITOR_INTERVAL);
+setInterval(monitorURL, MONITOR_INTERVAL)
