@@ -1,6 +1,6 @@
 {
   "name": "url-to-mqtt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Monitor a URL and post its content to an MQTT topic",
   "repository": "https://github.com/TyIsI/url-to-mqtt",
   "main": "index.js",

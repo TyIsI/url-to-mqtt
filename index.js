@@ -14,7 +14,10 @@ const connected = async () => {
 const monitorURL = async () => {
   try {
     let content = await RP(MONITOR_URL)
-    await client.publish(MQTT_TOPIC, content)
+    if (content !== lastLoadedContent) {
+      await client.publish(MQTT_TOPIC, content)
+      lastLoadedContent = content
+    }
   } catch (e) {
     handleError(e.stack)
   }
@@ -25,6 +28,8 @@ const MONITOR_URL = process.env.MONITOR_URL || handleError('Missing MONITOR_URL'
 const MONITOR_INTERVAL = process.env.MONITOR_INTERVAL || handleError('Missing MONITOR_INTERVAL')
 const MQTT_URI = process.env.MQTT_URI || handleError('Missing MQTT_URI')
 const MQTT_TOPIC = process.env.MQTT_TOPIC || handleError('Missing MQTT_TOPIC')
+
+var lastLoadedContent = ''
 
 const client = MQTT.connect(MQTT_URI)
 
