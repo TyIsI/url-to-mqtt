@@ -15,6 +15,7 @@ docker run \
   -e MONITOR_INTERVAL=10000 \
   -e MQTT_URI=tcp://test.mosquitto.org:1883/ \
   -e MQTT_TOPIC=/randomnumbers \
+  -e MQTT_INTERVAL=60000
   tyisi/url-to-mqtt
 ```
 
@@ -29,6 +30,7 @@ services:
       - MONITOR_INTERVAL=10000
       - MQTT_URI=tcp://test.mosquitto.org:1883/
       - MQTT_TOPIC=/randomnumbers
+      - MQTT_INTERVAL=60000
 ```
 
 ## Variables
@@ -47,4 +49,8 @@ This is a URI supported by [async-mqtt](https://github.com/mqttjs/async-mqtt)
 
 ### MQTT_TOPIC
 
-An MQTT topic
+The MQTT topic that the content will be reported to.
+
+### MQTT_INTERVAL
+
+Optional interval at which (stale) values will be reported.
