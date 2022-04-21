@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:lts
 
 WORKDIR /app
 CMD ["npm","start"]
