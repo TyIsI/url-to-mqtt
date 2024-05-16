@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "async-mqtt": "^2.2.1",
-    "request": "^2.88.0",
+    "async-mqtt": "^2.6.3",
+    "request": "^2.88.2",
     "request-promise": "^4.2.4"
   },
   "devDependencies": {
